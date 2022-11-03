@@ -11,6 +11,11 @@ $ npx prisma migrate dev
 $ npx prisma studio
 ```
 
+## Prisma Seed
+```bash
+$ npx prisma db seed
+```
+
 ### Prisma ERD Generator
 ```bash
 $ npm i prisma-erd-generator @mermaid-js/mermaid-cli -D
