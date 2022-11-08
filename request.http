@@ -11,10 +11,21 @@ content-type: application/json
 }
 
 ### Pools - Count
-GET http://{{host}}/pools/count
+GET http://{{host}}/polls/count
 
 ### Users - Count
 GET http://{{host}}/users/count
 
+### Users - Auth
+POST http://{{host}}/users
+content-type: application/json
+
+{
+    "access_token": "..."
+}
+
+
 ### Guesses - Count
 GET http://{{host}}/guesses/count
+
+
