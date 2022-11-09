@@ -16,6 +16,10 @@ GET http://{{host}}/polls/count
 ### Users - Count
 GET http://{{host}}/users/count
 
+### Users - Auth - me
+GET http://{{host}}/me
+Authorization: Bearer ...
+
 ### Users - Auth
 POST http://{{host}}/users
 content-type: application/json
