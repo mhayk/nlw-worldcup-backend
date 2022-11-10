@@ -2,12 +2,21 @@
 @port = 3333
 @host = {{hostname}}:{{port}}
 
-### Pools - Create
-POST http://{{host}}/pools
+### Pools - Create without owner
+POST http://{{host}}/polls
 content-type: application/json
 
 {
     "title": "Bolão do Mhayk"
+}
+
+### Pools - Create with owner
+POST http://{{host}}/polls
+Authorization: Bearer ...
+content-type: application/json
+
+{
+    "title": "Bolão com dono!"
 }
 
 ### Pools - Count
