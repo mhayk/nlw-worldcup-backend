@@ -1,6 +1,7 @@
 @hostname = localhost
 @port = 3333
 @host = {{hostname}}:{{port}}
+@jwt_token = ...
 
 ### Polls - Create without owner
 POST http://{{host}}/polls
@@ -12,7 +13,7 @@ content-type: application/json
 
 ### Polls - Create with owner
 POST http://{{host}}/polls
-Authorization: Bearer ...
+Authorization: Bearer {{jwt_token}}
 content-type: application/json
 
 {
@@ -24,18 +25,28 @@ GET http://{{host}}/polls/count
 
 ### Pools - List polls
 GET http://{{host}}/polls
-Authorization: Bearer ...
+Authorization: Bearer {{jwt_token}}
 
 ### Pools - get a poll
 GET http://{{host}}/polls/G2GHFI
-Authorization: ..
+Authorization: Bearer {{jwt_token}}
+
+### Pools - create guess
+POST http://{{host}}/polls/clackfq3n0001fxymblhss8g3/games/cla2p6wgc0007fxugodx39k9q/guesses
+Authorization: Bearer {{jwt_token}}
+content-type: application/json
+
+{
+    "firstTeamPoints": 2,
+    "secondTeamPoints": 5
+}
 
 ### Users - Count
 GET http://{{host}}/users/count
 
 ### Users - Auth - me
 GET http://{{host}}/me
-Authorization: Bearer ...
+Authorization: Bearer {{jwt_token}}
 
 ### Users - Auth
 POST http://{{host}}/users
@@ -51,4 +62,4 @@ GET http://{{host}}/guesses/count
 
 ### Games - List games in a poll
 GET http://{{host}}/polls/clackfq3n0001fxymblhss8g3/games
-Authorization: Bearer ...
+Authorization: Bearer {{jwt_token}}
