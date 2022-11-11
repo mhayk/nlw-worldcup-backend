@@ -28,7 +28,7 @@ Authorization: Bearer ...
 
 ### Pools - get a poll
 GET http://{{host}}/polls/G2GHFI
-Authorization: Bearer ...
+Authorization: ..
 
 ### Users - Count
 GET http://{{host}}/users/count
@@ -49,4 +49,6 @@ content-type: application/json
 ### Guesses - Count
 GET http://{{host}}/guesses/count
 
-
+### Games - List games in a poll
+GET http://{{host}}/polls/clackfq3n0001fxymblhss8g3/games
+Authorization: Bearer ...
