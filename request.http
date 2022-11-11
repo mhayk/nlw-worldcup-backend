@@ -26,6 +26,10 @@ GET http://{{host}}/polls/count
 GET http://{{host}}/polls
 Authorization: Bearer ...
 
+### Pools - get a poll
+GET http://{{host}}/polls/G2GHFI
+Authorization: Bearer ...
+
 ### Users - Count
 GET http://{{host}}/users/count
 
