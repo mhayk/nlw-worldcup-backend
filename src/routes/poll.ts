@@ -103,5 +103,45 @@ export async function pollRoutes(fastify: FastifyInstance) {
 
         return reply.status(201).send()
     })
+
+    fastify.get('/polls', {
+        onRequest: [authenticate]
+    }, async (request) => {
+        const polls = await prisma.pool.findMany({
+            where: {
+                participants: {
+                    some: {
+                        userId: request.user.sub
+                    }
+                }
+            },
+            include: {
+                _count: {
+                    select: {
+                        participants: true,
+                    }
+                },
+                participants: {
+                    select: {
+                        id: true,
+                        user: {
+                            select: {
+                                avatarUrl: true
+                            }
+                        }
+                    },
+                    take: 4,
+                },
+                owner: {
+                    select: {
+                        name: true,
+                        id: true
+                    }
+                }
+            }
+        })
+
+        return { polls }
+    })
 }
 

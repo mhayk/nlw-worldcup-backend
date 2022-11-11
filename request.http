@@ -2,7 +2,7 @@
 @port = 3333
 @host = {{hostname}}:{{port}}
 
-### Pools - Create without owner
+### Polls - Create without owner
 POST http://{{host}}/polls
 content-type: application/json
 
@@ -10,7 +10,7 @@ content-type: application/json
     "title": "Bolão do Mhayk"
 }
 
-### Pools - Create with owner
+### Polls - Create with owner
 POST http://{{host}}/polls
 Authorization: Bearer ...
 content-type: application/json
@@ -19,8 +19,12 @@ content-type: application/json
     "title": "Bolão com dono!"
 }
 
-### Pools - Count
+### Polls - Count
 GET http://{{host}}/polls/count
+
+### Pools - List polls
+GET http://{{host}}/polls
+Authorization: Bearer ...
 
 ### Users - Count
 GET http://{{host}}/users/count
